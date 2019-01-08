@@ -1,0 +1,1 @@
+# Calculator React-Native - simple calculator with basic operations

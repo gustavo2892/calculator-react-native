@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     }, 
     operationButton: {
         color: '#fff',
-        backgroundColor: '#cc0000'
+        backgroundColor: '#00008b'
     },
     buttonDouble: {
         width: (Dimensions.get('window').width / 4) * 2,
@@ -31,9 +31,17 @@ const styles = StyleSheet.create({
 
 export default class Button extends Component {
     render () {
+        const stylesButton = [styles.button];
+
+        if (this.props.double) stylesButton.push(styles.buttonDouble);
+
+        if(this.props.triple) stylesButton.push(styles.buttonTriple);
+
+        if(this.props.operation) stylesButton.push(styles.operationButton);
+
         return (
-            <TouchableHighlight /*onPress={props.onClick}*/>
-                <Text style={styles.button}>{this.props.label}</Text>
+            <TouchableHighlight onPress={this.props.onClick}>
+                <Text style={stylesButton}>{this.props.label}</Text>
             </TouchableHighlight>
         );
     }
